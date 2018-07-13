@@ -458,6 +458,13 @@ interface btTypedConstraint {
   void setParam(long num, float value, long axis);
 };
 
+enum btConstraintParams {
+  "BT_CONSTRAINT_ERP",
+  "BT_CONSTRAINT_STOP_ERP",
+  "BT_CONSTRAINT_CFM",
+  "BT_CONSTRAINT_STOP_CFM"
+};
+
 interface btPoint2PointConstraint {
   void btPoint2PointConstraint([Ref] btRigidBody rbA, [Ref] btRigidBody rbB, [Ref] btVector3 pivotInA, [Ref] btVector3 pivotInB);
   void btPoint2PointConstraint([Ref] btRigidBody rbA, [Ref] btVector3 pivotInA);

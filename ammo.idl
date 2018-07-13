@@ -440,7 +440,7 @@ interface btRigidBody {
   btMotionState getMotionState();
   void setMotionState(btMotionState motionState);
   void setAngularFactor([Const, Ref] btVector3 angularFactor);
-  btRigidBody upcast([Const] btCollisionObject colObj);
+//btRigidBody upcast([Const] btCollisionObject colObj);
 };
 btRigidBody implements btCollisionObject;
 
@@ -455,6 +455,7 @@ interface btTypedConstraint {
   void enableFeedback(boolean needsFeedback);
   [Const] float getBreakingImpulseThreshold();
   void setBreakingImpulseThreshold([Const] float threshold);
+  void setParam(long num, float value, long axis);
 };
 
 interface btPoint2PointConstraint {
@@ -537,6 +538,11 @@ interface btSliderConstraint {
 };
 btSliderConstraint implements btTypedConstraint;
 
+interface btFixedConstraint {
+  void btFixedConstraint([Ref] btRigidBody rbA, [Ref] btRigidBody rbB, [Const,Ref] btTransform frameInA, [Const,Ref] btTransform frameInB);
+};
+btFixedConstraint implements btTypedConstraint;
+
 interface btConstraintSolver {
 };
 
@@ -562,13 +568,14 @@ interface btCollisionWorld {
   void addCollisionObject(btCollisionObject collisionObject, optional short collisionFilterGroup, optional short collisionFilterMask);
   [Const] btBroadphaseInterface getBroadphase ();
   void convexSweepTest([Const] btConvexShape castShape, [Const, Ref] btTransform from, [Const, Ref] btTransform to, [Ref] ConvexResultCallback resultCallback, float allowedCcdPenetration);
-  void contactPairTest([Const] btCollisionObject colObjA, [Const] btCollisionObject colObjB, [Ref] ContactResultCallback resultCallback);
-  void contactTest([Const] btCollisionObject colObj, [Ref] ContactResultCallback resultCallback);
+//void contactPairTest([Const] btCollisionObject colObjA, [Const] btCollisionObject colObjB, [Ref] ContactResultCallback resultCallback);
+//void contactTest([Const] btCollisionObject colObj, [Ref] ContactResultCallback resultCallback);
 };
 
 interface btContactSolverInfo {
   attribute boolean m_splitImpulse;
   attribute long m_splitImpulsePenetrationThreshold;
+  attribute long m_numIterations;
 };
 
 interface btDynamicsWorld {
@@ -826,7 +833,7 @@ interface btSoftBody {
   void rotate( [Const, Ref] btQuaternion rot);
   void scale(  [Const, Ref] btVector3 scl);
   long generateClusters(long k, optional long maxiterations);
-  btSoftBody upcast([Const] btCollisionObject colObj);
+//btSoftBody upcast([Const] btCollisionObject colObj);
 };
 btSoftBody implements btCollisionObject;
 

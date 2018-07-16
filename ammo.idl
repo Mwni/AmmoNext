@@ -499,6 +499,30 @@ interface btGeneric6DofSpringConstraint {
 };
 btGeneric6DofSpringConstraint implements btGeneric6DofConstraint;
 
+
+interface btGeneric6DofSpring2Constraint {
+  void btGeneric6DofSpring2Constraint([Ref] btRigidBody rbA, [Ref] btRigidBody rbB, [Ref] btTransform frameInA, [Ref] btTransform frameInB);
+  void btGeneric6DofSpring2Constraint([Ref] btRigidBody rbB, [Ref] btTransform frameInB);
+  void setLinearLowerLimit([Const, Ref] btVector3 linearLower);
+  void setLinearUpperLimit([Const, Ref] btVector3 linearUpper);
+  void setAngularLowerLimit([Const, Ref] btVector3 angularLower);
+  void setAngularUpperLimit([Const, Ref] btVector3 angularUpper);
+  void enableSpring(long index, boolean onOff);
+  void setStiffness(long index, float stiffness);
+  void setDamping(long index, float damping);
+  void setBounce(long index, float bounce);
+  void setEquilibriumPoint (long index, float val);
+  void enableMotor(long index, boolean onOff);
+  void setTargetVelocity(long index, float veolcity);
+  void setMaxMotorForce(long index, float force);
+  void setServo(long index, boolean onOff);
+  void setServoTarget(long index, float target);
+  void setParam(long num, float value, long axis);
+  float getAngle(long axis_index);
+//  btRotationalLimitMotor getRotationalLimitMotor(long index);
+};
+btGeneric6DofSpringConstraint implements btTypedConstraint;
+
 interface btSequentialImpulseConstraintSolver {
   void btSequentialImpulseConstraintSolver();
 };

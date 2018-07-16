@@ -5,7 +5,18 @@ from subprocess import Popen, PIPE, STDOUT
 
 # Definitions
 
-INCLUDES = ['btBulletDynamicsCommon.h', os.path.join('BulletCollision', 'CollisionShapes', 'btHeightfieldTerrainShape.h'), os.path.join('BulletCollision', 'CollisionDispatch', 'btGhostObject.h'), os.path.join('BulletDynamics', 'Character', 'btKinematicCharacterController.h'), os.path.join('BulletSoftBody', 'btSoftBody.h'), os.path.join('BulletSoftBody', 'btSoftRigidDynamicsWorld.h'), os.path.join('BulletSoftBody', 'btDefaultSoftBodySolver.h'), os.path.join('BulletSoftBody', 'btSoftBodyRigidBodyCollisionConfiguration.h'), os.path.join('BulletSoftBody', 'btSoftBodyHelpers.h')]
+INCLUDES = [
+  'btBulletDynamicsCommon.h', 
+  os.path.join('BulletCollision', 'CollisionShapes', 'btHeightfieldTerrainShape.h'), 
+  os.path.join('BulletCollision', 'CollisionDispatch', 'btGhostObject.h'), 
+  os.path.join('BulletDynamics', 'Character', 'btKinematicCharacterController.h'), 
+  os.path.join('BulletDynamics', 'ConstraintSolver', 'btGeneric6DofSpring2Constraint.h'), 
+  os.path.join('BulletSoftBody', 'btSoftBody.h'), 
+  os.path.join('BulletSoftBody', 'btSoftRigidDynamicsWorld.h'), 
+  os.path.join('BulletSoftBody', 'btDefaultSoftBodySolver.h'), 
+  os.path.join('BulletSoftBody', 'btSoftBodyRigidBodyCollisionConfiguration.h'), 
+  os.path.join('BulletSoftBody', 'btSoftBodyHelpers.h')
+]
 
 # Startup
 
